@@ -1,21 +1,19 @@
-import { StatusBar } from 'expo-status-bar';
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import React from "react";
+import { WebView } from "react-native-webview";
+import { View } from "react-native";
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <>
+      <View style={{ height: 40, backgroundColor: "#1c0697" }}></View>
+      <WebView
+        source={{
+          uri: "https://go.smarttradecoin.com?hash=f5324bdbec325ad86fcfc1cb",
+        }}
+        onError={(event) =>
+          alert(`Webview error ${event.nativeEvent.description}`)
+        }
+      />
+    </>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
